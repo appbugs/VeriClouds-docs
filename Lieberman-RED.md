@@ -7,3 +7,4 @@ Lieberman Software RED Rapid Enterprise Defense™ Suite and VeriClouds CredVeri
 * Detect if a user's credentials are weak or stolen and display a warning or prohibit the user from logging in
 * Prevent the use of weak, reused or stolen credentials during self-service password reset
 * Choose between VeriClouds' SaaS service or premium on-premise hardware appliance for maximum scalability and security
+ 
