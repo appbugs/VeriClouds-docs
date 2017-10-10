@@ -7,7 +7,7 @@ VeriClouds CredVerify enables digital transformation by providing sophisticated 
 * Choose between VeriClouds' SaaS service or premium on-premise hardware appliance for maximum scalability and security
 
 ## Privilege Management Meets Actionable Intelligence
-VeriClouds CredVerify is fully integrated into the Lieberman RED Identity Management module. VeriClouds enables the transformation of visibility into compromised credentials discovered on the deep and dark web into an intelligence driven security operation that is an evolution for most organizations.
+VeriClouds CredVerify is fully integrated into the Identity Management module. VeriClouds enables the transformation of visibility into compromised credentials discovered on the deep and dark web into an intelligence driven security operation that is an evolution for most organizations.
 
 Enabling VeriClouds CredVerify in your environment:
 
