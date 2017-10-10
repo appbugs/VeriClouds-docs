@@ -17,3 +17,14 @@ Enabling VeriClouds CredVerify in your environment:
 * Significantly minimizes the threat from the #1 cause of data breaches, the weak or stolen password
 
 Integrating and uniting privilege management with superior detective controls closes the loop. It unleashes the full power and potential of compromised credential verification “as-a-service.”
+
+## Security By Design
+VeriClouds engages in "white hat security research" to prevent threat actors from gaining unauthorized access to customer accounts, and operates to promote security and safety for the true owner of the data or person entitled to the data. The VeriClouds solution uses its own patent-pending technology utilizing encryption, hashing and data masking to ensure privacy and compliance when handling potential PII and other sensitive data.
+
+VeriClouds' unique and proprietary database offers these distinct advantages:
+
+* All PII data are encrypted using AES-256
+* Crypto for password comparisons are performed in an on-board HSM in our hardware appliance
+* Data masking techniques are combined with data encryption to ensure we never reveal sensitive data
+
+Whether your needs are compliance with GDPR, ISO, SOC2 or any other regulatory concerns, you can rest assured that VeriClouds' commitment to security by design and privacy preservation ensures the safety and protection of yours and your customer's sensitive data.
