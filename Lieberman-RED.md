@@ -10,9 +10,10 @@ Lieberman Software RED Rapid Enterprise Defense™ Suite and VeriClouds CredVeri
 
 <h1>Hello World</h1>
 <p>hello world
-```javascript
-var service_name = 'vericlouds.com' // please change to your service name
 
+```javascript
+
+var service_name = 'vericlouds.com' // please change to your service name
 
 function is_compromised(userid, password){
     // please use the code listed in Examples section on how to call our API
@@ -106,3 +107,4 @@ check_nist_password_policies('this_is_test@gmail.com', 'is_test')
 check_nist_password_policies('this_is_test@gmail.com', 'vericlouds')
 ```
 </p>
+VVVVVVVVVV
