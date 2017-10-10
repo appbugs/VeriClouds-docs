@@ -16,6 +16,13 @@ The CredVerify API can be integrated into risk scoring systems to help refine th
 ## Account Takeover Detection
 The CredVerify API can be used to detect account takeover attacks. Account takeover attacks typically leverage a database of compromised credentials and are hard to be detected by traditional IDS methods due to lack of visibility into such a database. The CredVerify API provides great visibility into such data in a secure fashion so that it has great potential to help better pinpoint account takeover attempts.  
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <div></div>
 <div></div>
 <div></div>
