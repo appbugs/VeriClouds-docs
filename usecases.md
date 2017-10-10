@@ -1,6 +1,5 @@
 The CredVerify API is very flexible and powerful. It can be used in various scenarios to help detect, verify and prevent the risk of compromised credentials.
 
-<a id='credmon'></a>
 ## Credential Monitoring & Notification
 The CredVerify API is used in VeriClouds CredMonitor service to help corporate customers monitor compromised passwords for its employees. The corporate customer can conduct the monitoring based on company domain name and/or person IDs of its employees.
 
@@ -13,6 +12,5 @@ Companies typically store the account data of their employees and customers in h
 ## Account Risk Scoring
 The CredVerify API can be integrated into risk scoring systems to help refine the risk scores for customer accounts. Roughly speaking, the risk score of an account will be increased if compromised passwords are found by the API and the score can be further fine tuned based on other contextual data such as leaked source types and source counts.
 
-<a id='ato'></a>
 ## Account Takeover Detection
 The CredVerify API can be used to detect account takeover attacks. Account takeover attacks typically leverage a database of compromised credentials and are hard to be detected by traditional IDS methods due to lack of visibility into such a database. The CredVerify API provides great visibility into such data in a secure fashion so that it has great potential to help better pinpoint account takeover attempts.
