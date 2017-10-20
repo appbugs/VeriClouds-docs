@@ -1,4 +1,4 @@
-<?php
+&lt;?php
 
 $service_name = 'vericlouds.com'; // please change to your service name
 
@@ -99,4 +99,4 @@ echo json_encode(check_nist_password_policies('this_is_test@gmail.com', '888888'
 echo json_encode(check_nist_password_policies('this_is_test@gmail.com', '1234abcd'))   . PHP_EOL;
 echo json_encode(check_nist_password_policies('this_is_test@gmail.com', 'is_test'))    . PHP_EOL;
 echo json_encode(check_nist_password_policies('this_is_test@gmail.com', 'vericlouds')) . PHP_EOL;
-?>
+?&gt;

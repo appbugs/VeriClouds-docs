@@ -1,4 +1,4 @@
-<?php
+&lt;?php
 $url = "https://api.vericlouds.com/index.php";
 $api_key = 'XXXXXXXX';
 $api_secret = 'xxxxxxxxxxxxxxxx';
@@ -34,4 +34,4 @@ function is_compromised($userid, $password) {
 }
 
 echo is_compromised('this_is_test@gmail.com', '123456');
-?>
+?&gt;
