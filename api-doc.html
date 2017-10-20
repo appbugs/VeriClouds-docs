@@ -2,102 +2,82 @@
 <html lang="en">
   <head>
     <title>VeriClouds - REST API Documentation</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="57x57" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
+    <link rel="icon" type="image/png" href="https://www.vericlouds.com/wp-content/uploads/2016/12/vc-favicon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/highlight/github.css">
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <nav class="nav nav-tabs" id="apiExampleTab" role="tablist">
-      <a class="nav-link active" id="apiJS-tab" data-toggle="tab" href="#apiJS" role="tab" aria-controls="apiJS" aria-selected="true">JavaScript</a>
-      <a class="nav-link" id="apiJava-tab" data-toggle="tab" href="#apiJava" role="tab" aria-controls="apiJava" aria-selected="false">Java</a>
-      <a class="nav-link" id="apiCsharp-tab" data-toggle="tab" href="#apiCsharp" role="tab" aria-controls="C#" aria-selected="false">C#</a>
-      <a class="nav-link" id="apiPhp-tab" data-toggle="tab" href="#apiPhp" role="tab" aria-controls="PHP" aria-selected="false">PHP</a>
-      <a class="nav-link" id="apiPython-tab" data-toggle="tab" href="#apiPython" role="tab" aria-controls="Python" aria-selected="false">Python</a>
-    </nav>
-    <div class="tab-content" id="apiExample">
-      <div class="tab-pane fade show active" id="apiJS" role="tabpanel" aria-labelledby="apiJS-tab">
-        JavaScript
+    <div class="container">
+      <h1 align="center">VeriClouds CredVerify API Document</h1>
+      <div align="center">Last updated August 15, 2017</div>
+      <div class="col-10">
+        <h2>Why?</h2>
+        <p>
+          Passwords already become the weakest link in cyber security. According to Verizon Data Breach Report 2017, 81% of data breaches confirmed in 2017 involved using weak and/or stolen passwords. The VeriClouds CredVerify API provides a secure and easy-to-use API interface which allows an enterprise customer to verify whether a user/employee account is compromised by checking the account record against billions of leaked credentials collected by VeriClouds.
+        </p>
+        <h2>API Usage</h2>
+        <p>
+          This document provides instructions on how to integrate VeriClouds CredVerify API with your account systems. First you need to have an api_key and an api_secret (If you do not have them, request FREE TRIAL from VeriClouds.). After obtaining the api_key, and api_secret, you can develop code to use the VeriClouds CredVerify API service.
+        </p>
+        <h4>Check if an account is compromised</h4>
+        <p>
+          To check whether the user ID and password combination is included in the compromised database, you first make a REST API call to the endpoint described below with the user ID of the account under API working mode search_leaked_password_with_userid. For a successful API call, the response data will include passwords_encrypted, a list of leaked passwords found by VeriClouds to be associated with the user ID. The passwords are encrypted with AES 256 CBC mode.
+        </p>
+        <p>
+          If you do not have the plaintext password of the account, you can use the number of records in the list as a risk indicator of the user ID. If you have the plaintext, then you can compare the plaintext against the list of leaked passwords to detect a match. Specifically, you need to decrypt the passwords with the api_secret as the key and then do the comparison. You will notice that each decrypted password only contains first and last characters and the length of the leaked password. You simply compare this partial leaked password against the plaintext password of the account. If the three pieces of information match (i.e., first, last characters and the length), according to VeriClouds study, there is over 99.9% of possibility that your password matches the leaked password, meaning that the user account (both user ID and password) is compromised.
+        </p>
+        <h4>Check if a password is compromised</h4>
+        <p>
+          To verify whether a password is included in a list of already compromised passwords, you make a REST API call to the endpoint described below with a partial hash of the test password under API working mode search_leaked_password_with_hash_segment. The response data will include password_hashes, a list of leaked passwords in format of SHA1 hashes. Then use the SHA1 hash of the test password to check against the list to find out whether it is compromised or not.
+        </p>
+        <h4>API Interface</h4>
+        <pre><code class="http">https://api.vericlouds.com/index.php</code></pre>
+        <h4>Request Parameters</h4>
+        <p>
+          All the parameters should be encoded by "urlencoding" and send to API Interface by POST method.
+        </p>
       </div>
-      <div class="tab-pane fade" id="apiJava" role="tabpanel" aria-labelledby="apiJava-tab">
-        Java
+      <nav class="nav nav-tabs" id="apiExampleTab" role="tablist">
+        <a class="nav-link active" id="apiJS-tab" data-toggle="tab" href="#apiJS" role="tab" aria-controls="apiJS" aria-selected="true">JavaScript</a>
+        <a class="nav-link" id="apiJava-tab" data-toggle="tab" href="#apiJava" role="tab" aria-controls="apiJava" aria-selected="false">Java</a>
+        <a class="nav-link" id="apiCsharp-tab" data-toggle="tab" href="#apiCsharp" role="tab" aria-controls="C#" aria-selected="false">C#</a>
+        <a class="nav-link" id="apiPhp-tab" data-toggle="tab" href="#apiPhp" role="tab" aria-controls="PHP" aria-selected="false">PHP</a>
+        <a class="nav-link" id="apiPython-tab" data-toggle="tab" href="#apiPython" role="tab" aria-controls="Python" aria-selected="false">Python</a>
+      </nav>
+      <div class="tab-content" id="apiExample">
+        <div class="tab-pane fade show active" id="apiJS" role="tabpanel" aria-labelledby="apiJS-tab"></div>
+        <div class="tab-pane fade" id="apiJava" role="tabpanel" aria-labelledby="apiJava-tab"></div>
+        <div class="tab-pane fade" id="apiCsharp" role="tabpanel" aria-labelledby="apiCsharp-tab"></div>
+        <div class="tab-pane fade" id="apiPhp" role="tabpanel" aria-labelledby="apiPhp-tab"></div>
+        <div class="tab-pane fade" id="apiPython" role="tabpanel" aria-labelledby="apiPython-tab"></div>
       </div>
-      <div class="tab-pane fade" id="apiCsharp" role="tabpanel" aria-labelledby="apiCsharp-tab">
-        C#
+
+      <nav class="nav nav-tabs" id="nistExampleTab" role="tablist">
+        <a class="nav-link active" id="nistJS-tab" data-toggle="tab" href="#nistJS" role="tab" aria-controls="nistJS" aria-selected="true">JavaScript</a>
+        <a class="nav-link" id="nistJava-tab" data-toggle="tab" href="#nistJava" role="tab" aria-controls="nistJava" aria-selected="false">Java</a>
+        <a class="nav-link" id="nistCsharp-tab" data-toggle="tab" href="#nistCsharp" role="tab" aria-controls="nistCsharp" aria-selected="false">C#</a>
+        <a class="nav-link" id="nistPhp-tab" data-toggle="tab" href="#nistPhp" role="tab" aria-controls="nistPhp" aria-selected="false">PHP</a>
+        <a class="nav-link" id="nistPython-tab" data-toggle="tab" href="#nistPython" role="tab" aria-controls="nistPython" aria-selected="false">Python</a>
+      </nav>
+      <div class="tab-content" id="nistExample">
+        <div class="tab-pane fade show active" id="nistJS" role="tabpanel" aria-labelledby="nistJS-tab"></div>
+        <div class="tab-pane fade" id="nistJava" role="tabpanel" aria-labelledby="nistJava-tab"></div>
+        <div class="tab-pane fade" id="nistCsharp" role="tabpanel" aria-labelledby="nistCsharp-tab"></div>
+        <div class="tab-pane fade" id="nistPhp" role="tabpanel" aria-labelledby="nistPhp-tab"></div>
+        <div class="tab-pane fade" id="nistPython" role="tabpanel" aria-labelledby="nistPython-tab"></div>
       </div>
-      <div class="tab-pane fade" id="apiPhp" role="tabpanel" aria-labelledby="apiPhp-tab">
-        PHP
-      </div>
-      <div class="tab-pane fade" id="apiPython" role="tabpanel" aria-labelledby="apiPython-tab">
-        Python
-      </div>
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+      <script src="/js/highlight.pack.js"></script>
+      <script src="/js/app.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
     </div>
-
-
-    <nav class="nav nav-tabs" id="nistExampleTab" role="tablist">
-      <a class="nav-link active" id="nistJS-tab" data-toggle="tab" href="#nistJS" role="tab" aria-controls="nistJS" aria-selected="true">JavaScript</a>
-      <a class="nav-link" id="nistJava-tab" data-toggle="tab" href="#nistJava" role="tab" aria-controls="nistJava" aria-selected="false">Java</a>
-      <a class="nav-link" id="nistCsharp-tab" data-toggle="tab" href="#nistCsharp" role="tab" aria-controls="nistCsharp" aria-selected="false">C#</a>
-      <a class="nav-link" id="nistPhp-tab" data-toggle="tab" href="#nistPhp" role="tab" aria-controls="nistPhp" aria-selected="false">PHP</a>
-      <a class="nav-link" id="nistPython-tab" data-toggle="tab" href="#nistPython" role="tab" aria-controls="nistPython" aria-selected="false">Python</a>
-    </nav>
-    <div class="tab-content" id="nistExample">
-      <div class="tab-pane fade show active" id="nistJS" role="tabpanel" aria-labelledby="nistJS-tab">
-        JavaScript
-      </div>
-      <div class="tab-pane fade" id="nistJava" role="tabpanel" aria-labelledby="nistJava-tab">
-        Java
-      </div>
-      <div class="tab-pane fade" id="nistCsharp" role="tabpanel" aria-labelledby="nistCsharp-tab">
-        C#
-      </div>
-      <div class="tab-pane fade" id="nistPhp" role="tabpanel" aria-labelledby="nistPhp-tab">
-        PHP
-      </div>
-      <div class="tab-pane fade" id="nistPython" role="tabpanel" aria-labelledby="nistPython-tab">
-        Python
-      </div>
-    </div>
-
-    <pre>
-      <code class="javascript">
-      	var url = "https://api.vericlouds.com/index.php"
-      	var api_key = 'XXXXXXXX'
-      	var api_secret = 'xxxxxxxxxxxxxxxx'
-      	var userid = 'this_is_test@gmail.com'
-      	var password = '123456'
-
-      	function mark_password(password) {
-      	    var masked_password = '';
-      	    if (password.length > 2) {
-      	        masked_password = password.charAt(0)+Array(password.length-1).join("*")+password.charAt(password.length-1);
-      	    } else {
-      	        masked_password = password;
-      	    }
-      	    return masked_password
-      	}
-      </code>
-    </pre>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <script src="/js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
