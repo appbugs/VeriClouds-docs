@@ -39,6 +39,111 @@
         <p>
           All the parameters should be encoded by "urlencoding" and send to API Interface by POST method.
         </p>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>Description</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>mode</td>
+              <td>The API working mode, currently we accept <b>search_leaked_password_with_userid</b> and <b>search_leaked_password_with_hash_segment</b>. The first mode allows to query leaked passwords with a user ID. The second mode allows to query leaked passwords with partial hash of the user password. For the first mode, <b>userid</b> is required. For the second mode, <b>hash_segment</b> is required.</td>
+            </tr>
+            <tr>
+              <td>api_key</td>
+              <td>The API key assigned by VeriClouds to the customer.</td>
+            </tr>
+            <tr>
+              <td>api_secret</td>
+              <td>The API secret assigned by VeriClouds to the customer. The secret is also used for decrypting sensitive data such as leaked passwords. It is important to never share the secret with any 3rd party.</td>
+            </tr>
+            <tr>
+              <td>userid</td>
+              <td>The user ID of the test account. The API currently only accepts email address as user ID. Only provide this field when <b>mode</b> is <b>search_leaked_password_with_userid</b>.</td>
+            </tr>
+            <tr>
+              <td>hash_segment</td>
+              <td>First six characters of a hex formated SHA1 hash of the test password. Only provide this field when <b>mode</b> is <b>search_leaked_password_with_hash_segment</b>. </td>
+            </tr>
+            <tr>
+              <td>context</td>
+              <td>Additional context data that can be requested. It is a combination of <b>source_type</b>,<b>source_count</b>, and <b>paste</b>, seperated by comma. It only works with <b>mode</b>=<b>search_leaked_password_with_userid</b>.</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <h4>Response Data</h4>
+        <p>
+          Response data is in json format, like this:
+        </p>
+        <pre><code class="json">
+{
+  "result": "succeeded",
+  "passwords_encrypted": [
+    "<ecncrypt_passwod>:<iv>",
+    "<ecncrypt_passwod>:<iv>",
+    ...
+  ],
+  "quota": "1000",
+  "quota_used": "130",
+  "time_lapse": "0.23"
+}
+        </code></pre>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>Description</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>result</td>
+              <td>The status of the query. The value <b>succeeded</b> indicates the API call is successful. The value <b>failed</b> indicates the API call is failed and a reason will be given in the <b>reason</b> field.</td>
+            </tr>
+            <tr>
+              <td>passwords_encrypted</td>
+              <td>The list of passwords which are found to be compromised. Each password is encrypted with AES 256 CBC mode.</td>
+            </tr>
+            <tr>
+              <td>&lt;ecncrypt_passwod&gt;</td>
+              <td>The leaked password found by VeriClouds to be associated with the <b>userid</b>. The password is encrypted with AES 256. The <b>api_secret</b> is used as the key for encryption. In addition, the leaked password has been modified to protect the privacy of the user. Specifically, only first and last characters along with the length are kept in the password. For example, for password "123456", you will only see "1****6" after decryption.</td>
+            </tr>
+            <tr>
+              <td>&lt;iv&gt;</td>
+              <td>The iv used to encrypt ecncrypt_passwod. </td>
+            </tr>
+            <tr>
+              <td>source_types</td>
+              <td>The list of source types for each password record in <b>passwords_encrypted</b> list. The field will be available when <b>context</b> contains <b>source_type</b>.</td>
+            </tr>
+            <tr>
+              <td>source_counts</td>
+              <td>The list of source counts for each password record in <b>passwords_encrypted</b> list. The field will be available when <b>context</b> contains <b>source_count</b>.</td>
+            </tr>
+            <tr>
+              <td>password_hashes</td>
+              <td>The list of compromised passwords (in SHA1 hash format) which are found to match the value of <b>hash_segment</b>. The field will be available when <b>mode</b>=<b>search_leaked_password_with_hash_segment</b>.</td>
+            </tr>
+            <tr>
+              <td>quota</td>
+              <td>The total number of queries assigned to the customer. </td>
+            </tr>
+            <tr>
+              <td>quota_used</td>
+              <td>The number of queries the customer already sent.</td>
+            </tr>
+            <tr>
+              <td>time_lapse</td>
+              <td>The time used for processing this query.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4>Example</h4>
+        <p>
+          Here are some sample code that you may consider to use.
+        </p>
       </div>
       <nav class="nav nav-tabs" id="apiExampleTab" role="tablist">
         <a class="nav-link active" id="apiJS-tab" data-toggle="tab" href="#apiJS" role="tab" aria-controls="apiJS" aria-selected="true">JavaScript</a>
@@ -54,7 +159,19 @@
         <div class="tab-pane fade" id="apiPhp" role="tabpanel" aria-labelledby="apiPhp-tab"></div>
         <div class="tab-pane fade" id="apiPython" role="tabpanel" aria-labelledby="apiPython-tab"></div>
       </div>
-
+      <h4>Support NIST Requirements</h4>
+      <p>
+        Recently published NIST (National Institute of Standards and Technology) Digital Identity Guidelines Draft recommended a list of important verification steps when creating an account or updating the password for a given account. Specifically, NIST recommends that verifiers SHALL compare the prospective secret (i.e., the account password) against a list that contains values known to be commonly-used, expected, or compromised. For example, the list MAY include (but is not limited to):
+      </p>
+      <ul>
+        <li>Passwords obtained from previous breach corpuses.</li>
+        <li>Dictionary words.</li>
+        <li>Repetitive or sequential characters (e.g. ‘aaaaaa’, ‘1234abcd’).</li>
+        <li>Context specific words, such as the name of the service, the username, and derivatives thereof.</li>
+      </ul>
+      <p>
+        VeriClouds provides a reference implementation for these checks. You can find sample code here.
+      </p>
       <nav class="nav nav-tabs" id="nistExampleTab" role="tablist">
         <a class="nav-link active" id="nistJS-tab" data-toggle="tab" href="#nistJS" role="tab" aria-controls="nistJS" aria-selected="true">JavaScript</a>
         <a class="nav-link" id="nistJava-tab" data-toggle="tab" href="#nistJava" role="tab" aria-controls="nistJava" aria-selected="false">Java</a>
@@ -69,7 +186,13 @@
         <div class="tab-pane fade" id="nistPhp" role="tabpanel" aria-labelledby="nistPhp-tab"></div>
         <div class="tab-pane fade" id="nistPython" role="tabpanel" aria-labelledby="nistPython-tab"></div>
       </div>
-
+      <h4>Attention</h4>
+      <p>
+        The api_key and api_secret are what we used to identify each customer and monitor customer API usage. The api_secret is also used to decrypt user partial passwords. Please keep them to yourself and do not share with any third parties. The encrypted passwords can be store in to local driver, but please do not store the decrypted passwords.
+      </p>
+      <footer>
+    		<p align="center">© 2015-2017 VeriClouds. All rights reserved.</p>
+      </footer>
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
