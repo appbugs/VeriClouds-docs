@@ -147,66 +147,66 @@
         <p>
           Here are some sample code that you may consider to use.
         </p>
+        <nav class="nav nav-tabs" id="apiExampleTab" role="tablist">
+          <a class="nav-link active" id="apiJS-tab" data-toggle="tab" href="#apiJS" role="tab" aria-controls="apiJS" aria-selected="true">JavaScript</a>
+          <a class="nav-link" id="apiJava-tab" data-toggle="tab" href="#apiJava" role="tab" aria-controls="apiJava" aria-selected="false">Java</a>
+          <a class="nav-link" id="apiCsharp-tab" data-toggle="tab" href="#apiCsharp" role="tab" aria-controls="C#" aria-selected="false">C#</a>
+          <a class="nav-link" id="apiPhp-tab" data-toggle="tab" href="#apiPhp" role="tab" aria-controls="PHP" aria-selected="false">PHP</a>
+          <a class="nav-link" id="apiPython-tab" data-toggle="tab" href="#apiPython" role="tab" aria-controls="Python" aria-selected="false">Python</a>
+        </nav>
+        <div class="tab-content" id="apiExample">
+          <div class="tab-pane fade show active" id="apiJS" role="tabpanel" aria-labelledby="apiJS-tab"></div>
+          <div class="tab-pane fade" id="apiJava" role="tabpanel" aria-labelledby="apiJava-tab"></div>
+          <div class="tab-pane fade" id="apiCsharp" role="tabpanel" aria-labelledby="apiCsharp-tab"></div>
+          <div class="tab-pane fade" id="apiPhp" role="tabpanel" aria-labelledby="apiPhp-tab"></div>
+          <div class="tab-pane fade" id="apiPython" role="tabpanel" aria-labelledby="apiPython-tab"></div>
+        </div>
+        <h4>Support NIST Requirements</h4>
+        <p>
+          Recently published NIST (National Institute of Standards and Technology) Digital Identity Guidelines Draft recommended a list of important verification steps when creating an account or updating the password for a given account. Specifically, NIST recommends that verifiers SHALL compare the prospective secret (i.e., the account password) against a list that contains values known to be commonly-used, expected, or compromised. For example, the list MAY include (but is not limited to):
+        </p>
+        <ul>
+          <li>Passwords obtained from previous breach corpuses.</li>
+          <li>Dictionary words.</li>
+          <li>Repetitive or sequential characters (e.g. ‘aaaaaa’, ‘1234abcd’).</li>
+          <li>Context specific words, such as the name of the service, the username, and derivatives thereof.</li>
+        </ul>
+        <p>
+          VeriClouds provides a reference implementation for these checks. You can find sample code here.
+        </p>
+        <nav class="nav nav-tabs" id="nistExampleTab" role="tablist">
+          <a class="nav-link active" id="nistJS-tab" data-toggle="tab" href="#nistJS" role="tab" aria-controls="nistJS" aria-selected="true">JavaScript</a>
+          <a class="nav-link" id="nistJava-tab" data-toggle="tab" href="#nistJava" role="tab" aria-controls="nistJava" aria-selected="false">Java</a>
+          <!-- <a class="nav-link" id="nistCsharp-tab" data-toggle="tab" href="#nistCsharp" role="tab" aria-controls="nistCsharp" aria-selected="false">C#</a> -->
+          <a class="nav-link" id="nistPhp-tab" data-toggle="tab" href="#nistPhp" role="tab" aria-controls="nistPhp" aria-selected="false">PHP</a>
+          <a class="nav-link" id="nistPython-tab" data-toggle="tab" href="#nistPython" role="tab" aria-controls="nistPython" aria-selected="false">Python</a>
+        </nav>
+        <div class="tab-content" id="nistExample">
+          <div class="tab-pane fade show active" id="nistJS" role="tabpanel" aria-labelledby="nistJS-tab"></div>
+          <div class="tab-pane fade" id="nistJava" role="tabpanel" aria-labelledby="nistJava-tab"></div>
+          <!-- <div class="tab-pane fade" id="nistCsharp" role="tabpanel" aria-labelledby="nistCsharp-tab"></div> -->
+          <div class="tab-pane fade" id="nistPhp" role="tabpanel" aria-labelledby="nistPhp-tab"></div>
+          <div class="tab-pane fade" id="nistPython" role="tabpanel" aria-labelledby="nistPython-tab"></div>
+        </div>
+        <h4>Attention</h4>
+        <p>
+          The api_key and api_secret are what we used to identify each customer and monitor customer API usage. The api_secret is also used to decrypt user partial passwords. Please keep them to yourself and do not share with any third parties. The encrypted passwords can be store in to local driver, but please do not store the decrypted passwords.
+        </p>
+        <br>
+        <br>
+        <footer>
+      		<p align="center">© 2015-2017 VeriClouds. All rights reserved.</p>
+        </footer>
+        <br>
       </div>
-      <nav class="nav nav-tabs" id="apiExampleTab" role="tablist">
-        <a class="nav-link active" id="apiJS-tab" data-toggle="tab" href="#apiJS" role="tab" aria-controls="apiJS" aria-selected="true">JavaScript</a>
-        <a class="nav-link" id="apiJava-tab" data-toggle="tab" href="#apiJava" role="tab" aria-controls="apiJava" aria-selected="false">Java</a>
-        <a class="nav-link" id="apiCsharp-tab" data-toggle="tab" href="#apiCsharp" role="tab" aria-controls="C#" aria-selected="false">C#</a>
-        <a class="nav-link" id="apiPhp-tab" data-toggle="tab" href="#apiPhp" role="tab" aria-controls="PHP" aria-selected="false">PHP</a>
-        <a class="nav-link" id="apiPython-tab" data-toggle="tab" href="#apiPython" role="tab" aria-controls="Python" aria-selected="false">Python</a>
-      </nav>
-      <div class="tab-content" id="apiExample">
-        <div class="tab-pane fade show active" id="apiJS" role="tabpanel" aria-labelledby="apiJS-tab"></div>
-        <div class="tab-pane fade" id="apiJava" role="tabpanel" aria-labelledby="apiJava-tab"></div>
-        <div class="tab-pane fade" id="apiCsharp" role="tabpanel" aria-labelledby="apiCsharp-tab"></div>
-        <div class="tab-pane fade" id="apiPhp" role="tabpanel" aria-labelledby="apiPhp-tab"></div>
-        <div class="tab-pane fade" id="apiPython" role="tabpanel" aria-labelledby="apiPython-tab"></div>
-      </div>
-      <h4>Support NIST Requirements</h4>
-      <p>
-        Recently published NIST (National Institute of Standards and Technology) Digital Identity Guidelines Draft recommended a list of important verification steps when creating an account or updating the password for a given account. Specifically, NIST recommends that verifiers SHALL compare the prospective secret (i.e., the account password) against a list that contains values known to be commonly-used, expected, or compromised. For example, the list MAY include (but is not limited to):
-      </p>
-      <ul>
-        <li>Passwords obtained from previous breach corpuses.</li>
-        <li>Dictionary words.</li>
-        <li>Repetitive or sequential characters (e.g. ‘aaaaaa’, ‘1234abcd’).</li>
-        <li>Context specific words, such as the name of the service, the username, and derivatives thereof.</li>
-      </ul>
-      <p>
-        VeriClouds provides a reference implementation for these checks. You can find sample code here.
-      </p>
-      <nav class="nav nav-tabs" id="nistExampleTab" role="tablist">
-        <a class="nav-link active" id="nistJS-tab" data-toggle="tab" href="#nistJS" role="tab" aria-controls="nistJS" aria-selected="true">JavaScript</a>
-        <a class="nav-link" id="nistJava-tab" data-toggle="tab" href="#nistJava" role="tab" aria-controls="nistJava" aria-selected="false">Java</a>
-        <!-- <a class="nav-link" id="nistCsharp-tab" data-toggle="tab" href="#nistCsharp" role="tab" aria-controls="nistCsharp" aria-selected="false">C#</a> -->
-        <a class="nav-link" id="nistPhp-tab" data-toggle="tab" href="#nistPhp" role="tab" aria-controls="nistPhp" aria-selected="false">PHP</a>
-        <a class="nav-link" id="nistPython-tab" data-toggle="tab" href="#nistPython" role="tab" aria-controls="nistPython" aria-selected="false">Python</a>
-      </nav>
-      <div class="tab-content" id="nistExample">
-        <div class="tab-pane fade show active" id="nistJS" role="tabpanel" aria-labelledby="nistJS-tab"></div>
-        <div class="tab-pane fade" id="nistJava" role="tabpanel" aria-labelledby="nistJava-tab"></div>
-        <!-- <div class="tab-pane fade" id="nistCsharp" role="tabpanel" aria-labelledby="nistCsharp-tab"></div> -->
-        <div class="tab-pane fade" id="nistPhp" role="tabpanel" aria-labelledby="nistPhp-tab"></div>
-        <div class="tab-pane fade" id="nistPython" role="tabpanel" aria-labelledby="nistPython-tab"></div>
-      </div>
-      <h4>Attention</h4>
-      <p>
-        The api_key and api_secret are what we used to identify each customer and monitor customer API usage. The api_secret is also used to decrypt user partial passwords. Please keep them to yourself and do not share with any third parties. The encrypted passwords can be store in to local driver, but please do not store the decrypted passwords.
-      </p>
-      <br>
-      <br>
-      <footer>
-    		<p align="center">© 2015-2017 VeriClouds. All rights reserved.</p>
-      </footer>
-      <br>
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-      <script src="/js/highlight.pack.js"></script>
-      <script src="/js/app.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script>
     </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script src="/js/app.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
