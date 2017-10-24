@@ -1,7 +1,5 @@
-![VeriClouds Logo](https://www.vericlouds.com/wp-content/uploads/2017/10/logo-2.png "VeriClouds")
-
-
 # Release Notes
+![VeriClouds Logo](https://www.vericlouds.com/wp-content/uploads/2017/10/logo-2.png "VeriClouds")
 
 #### version: 1.1.1 (10/20/2017)
 * New: Consolidate customer management buttons into dropdown menus
