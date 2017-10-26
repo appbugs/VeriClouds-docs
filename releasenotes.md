@@ -7,7 +7,8 @@
 * New: Consolidate customer management buttons into dropdown menus
 * New: Manage customer license by setting paid expiration date and notes
 * Fix: Attach partner name when creating new customer account
-* New: Load API doc from Github web portal
+* New: Load API doc from Github web portal  
+
 ![expiration_date](https://appbugs.github.io/img/manage_paid_expiration_feature.png "Expiration date and notes feature. Only partner role admin can use the feature in Customer Management section.")
 
 #### version: 1.1.0 (10/12/2017)
@@ -18,6 +19,7 @@
 * New: Add Use Cases section to CredVerify API page
 * New: Add Live Demo to CredVerify API page
 * Fix: fix Personal ID empty id issue
+
 ![use cases](https://appbugs.github.io/img/feature_usecases.png "Use Cases feature. You can see it after clicking CredVerify API in front page. Click on Live Demo button to try a live demo of web login with CredVerify enabled.")
 
 #### version: 1.0.8 (09/28/2017)
