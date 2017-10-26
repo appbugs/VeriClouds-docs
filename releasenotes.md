@@ -1,5 +1,8 @@
 
+Logo
 <img src="https://www.vericlouds.com/wp-content/uploads/2017/10/logo-2.png" alt="Logo" style="width: 100px;">
+
+Logo
 ![logo](https://www.vericlouds.com/wp-content/uploads/2017/10/logo-2.png "Logo Title")
 
 # Release Notes
