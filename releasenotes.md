@@ -1,7 +1,7 @@
 
-<img src="https://www.vericlouds.com/wp-content/uploads/2017/10/logo-2.png" alt="Logo" style="width: 200px;">
+<img src="https://www.vericlouds.com/wp-content/uploads/2017/10/logo-2.png" alt="Logo" style="width: 100px;">
 
-![logo](https://www.vericlouds.com/wp-content/uploads/2017/10/logo-2.png "Logo Title")
+
 
 # Release Notes
 
@@ -15,3 +15,5 @@
 #### version: 1.1.0 (10/12/2017)
 * New: Show release notes to partner admin at the homepage
 * Fix: Use underscore in admin token
+
+![logo](https://www.vericlouds.com/wp-content/uploads/2017/10/logo-2.png "Logo Title")
