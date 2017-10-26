@@ -14,4 +14,12 @@
 * New: Show release notes to partner admin at the homepage
 * Fix: Use underscore in admin token
 
+#### version: 1.0.9 (10/10/2017)
+* New: Add Use Cases section to CredVerify API page
+* New: Add Live Demo to CredVerify API page
+* Fix: fix Personal ID empty id issue
+<img src="https://appbugs.github.io/img/feature_usecases.png" alt="Use Cases feature" style="width: 600px;">
+
+
+
 
