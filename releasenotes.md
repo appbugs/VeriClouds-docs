@@ -1,4 +1,3 @@
-
 <img src="https://www.vericlouds.com/wp-content/uploads/2017/10/logo-2.png" alt="Logo" style="width: 200px;">
 
 # Release Notes
