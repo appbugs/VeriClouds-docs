@@ -46,8 +46,16 @@
 * New: CredMonitor Personal IDs Batch Import
 * Fix: language button position issue
 
-
 #### version: 1.0.2 (08/01/2017)
 * New: CredMonitor Personal IDs feature
 ![personal_ids](https://appbugs.github.io/img/personal_ids_feature.png "Personal IDs feature in CredMonitor. A Customer can use this feature to help its employees monitor leaked passwords based on personal email addresses.")
 
+#### version: 1.0.1 (07/12/2017)
+* New: CredMonitor Personal IDs feature
+* Fix: HTTPS redirect loop issue
+* Fix: localhost issue in index.html
+![personal_ids](https://appbugs.github.io/img/personal_ids_feature.png "Personal IDs feature in CredMonitor. A Customer can use this feature to help its employees monitor leaked passwords based on personal email addresses.")
+
+#### version: 1.0.0 (06/01/2017)
+* New: Portal 2 lauched. Domain name: portal2.vericlouds.com
+* New: support HTTPS
