@@ -7,13 +7,13 @@ function is_compromised(userid, password){
 }
 
 function check_nist_password_policies_by_json(userid, password, nist_configs) {
-    
+
     for (var i = 0, len = nist_configs.check_list.length; i < len; i++) {
         var check_item = nist_configs.check_list[i];
         if (nist_configs != null) {
             for (var i = 0, len = nist_configs.check_list.length; i < len; i++) {
                 var check_item = nist_configs.check_list[i];
-                if (check_item === 'compromised') { 
+                if (check_item === 'compromised') {
                     is_compromised(userid, password);
                 } else if (check_item == 'dictionary') {
                     for (var k=0, dict_len = nist_configs.dictionary_passwords.length; k < dict_len; k++) {
@@ -25,7 +25,7 @@ function check_nist_password_policies_by_json(userid, password, nist_configs) {
                 } else if (check_item === 'repetitive') {
                     var first_char = password[0];
                     var is_repeat = true;
-                    for (var k=1; k<password.length; k++) {
+                    for (var k=1; k < password.length; k++) {
                         if (first_char != password[k]) {
                             is_repeat = false;
                             break;
@@ -39,12 +39,12 @@ function check_nist_password_policies_by_json(userid, password, nist_configs) {
                     var curr_ascii = password.charCodeAt(0);
                     var is_seq = false;
                     var switched = false;
-                    for (var k=1; k<password.length; k++) {
+                    for (var k=1; k < password.length; k++) {
                         var next_ascii = password.charCodeAt(k);
                         if (curr_ascii+1 == next_ascii) {
                             is_seq = true;
                             curr_ascii = next_ascii;
-                        } else if (is_seq) { 
+                        } else if (is_seq) {
                             if (switched) { //only allow switch once
                                 is_seq = false;
                                 break;
@@ -74,7 +74,7 @@ function check_nist_password_policies_by_json(userid, password, nist_configs) {
                 }
             }
         }
-        
+
     }
 }
 
