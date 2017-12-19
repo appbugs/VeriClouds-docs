@@ -14,7 +14,7 @@
       <br>
       <h1 align="center">VeriClouds CredVerify API Document</h1>
       <hr>
-      <div align="center">Last updated August 15, 2017</div>
+      <div align="center">Last updated December 03, 2017</div>
       <br>
       <div class="col-10">
         <h2>Why?</h2>
@@ -65,6 +65,10 @@
             <tr>
               <td>userid</td>
               <td>The user ID of the test account. The API currently only accepts email address as user ID. Only provide this field when <b>mode</b> is <b>search_leaked_password_with_userid</b>.</td>
+            </tr>
+            <tr>
+              <td>userid_type</td>
+              <td>The type of <b>userid</b>. The API currently accepts <b>default</b> and <b>hash</b>. If <b>hash</b> is specified, <b>userid</b> field is required to have the SHA256 hash value of the user ID instead of the plaintext user ID.</td>
             </tr>
             <tr>
               <td>hash_segment</td>
@@ -188,9 +192,13 @@
           <div class="tab-pane fade" id="nistPhp" role="tabpanel" aria-labelledby="nistPhp-tab"></div>
           <div class="tab-pane fade" id="nistPython" role="tabpanel" aria-labelledby="nistPython-tab"></div>
         </div>
+        <h4>Domain API (Partner Only)</h4>
+        <p>
+          Domain API allows the API user to load a list of leaked user IDs by providing an email domain (e.g., chase.com). The Domain API, when combined with the regular APIs, can be used to monitor compromised credentials based on a company's email domain. It is offered to authorized VeriClouds partners only to help them monitor domains for their corporate customers. For partners who are interested in using this API, please contact support@vericlouds.com to obtain API credentials and sample code.
+        </p>
         <h4>Attention</h4>
         <p>
-          The api_key and api_secret are what we used to identify each customer and monitor customer API usage. The api_secret is also used to decrypt user partial passwords. Please keep them to yourself and do not share with any third parties. The encrypted passwords can be store in to local driver, but please do not store the decrypted passwords.
+          The api_key and api_secret are what we used to identify each customer and monitor customer API usage. The api_secret is also used to decrypt user partial passwords. Please keep them to yourself and do not share with any third parties. The encrypted passwords may be stored on a permanent storage such as a database, but please do not store the decrypted passwords.
         </p>
         <br>
         <br>
