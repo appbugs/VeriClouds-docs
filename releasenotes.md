@@ -10,7 +10,7 @@
 ![credmonitor_profile](https://appbugs.github.io/img/feature_credmonitor_profile.png "In addition to leaked passwords, CredMonitor now supports monitoring leaked profile data such as full name, physical address, phone number, and others.")
 
 #### version: 1.1.6 (12/08/2017)
-* New: VIP checkbox in Domain monitor and Personal ID monitor
+* New: VIP labeling in Domain monitor and Personal ID monitor
 * New: Upgrade reminder
 
 ![credmonitor_vip](https://appbugs.github.io/img/feature_credmonitor_vip.png "CredMonitor supports label key employees as VIP. VIP accounts will be monitored daily and admin will be notified immediately when leaked passwords are found for VIPs.")
