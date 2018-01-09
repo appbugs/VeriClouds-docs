@@ -3,6 +3,43 @@
 
 # Release Notes
 
+#### version: 1.1.7 (12/22/2017)
+* New: CredMonitor supports monitoring leaked profile information
+* New: API supports email as userid_type
+
+![credmonitor_profile](https://appbugs.github.io/img/feature_credmonitor_profile.png "In addition to leaked passwords, CredMonitor now supports monitoring leaked profile data such as full name, physical address, phone number, and others.")
+
+#### version: 1.1.6 (12/08/2017)
+* New: VIP checkbox in Domain monitor and Personal ID monitor
+* New: Upgrade reminder
+
+![credmonitor_vip](https://appbugs.github.io/img/feature_credmonitor_vip.png "CredMonitor supports label key employees as VIP. VIP accounts will be monitored daily and admin will be notified immediately when leaked passwords are found for VIPs.")
+
+#### version: 1.1.5 (12/01/2017)
+* New: Domain monitoring and Personal ID UI unify
+* New: API supports ai_bot
+* Fix: Portal UI blocked calling API
+
+![api_ai_bot](https://appbugs.github.io/img/feature_api_ai_bot.png "API supports AI bot which can intelligently find more leaked passwords for the same user. 6% additional leaked passwords can be found with this version of AI bot.")
+
+#### version: 1.1.4 (11/29/2017)
+* New: API usage display on API Portal
+* New: API supports phone_number as a new userid type
+* Fix: Browser favicon display issue
+
+![api_phone_number](https://appbugs.github.io/img/feature_api_phonenumber.png "API supports query with phone number as user identity.")
+
+#### version: 1.1.3 (11/10/2017)
+* New: Language button removed from Portal and Portal language of a Customer is configurable by Partner
+* New: demo on how to use CredCrypto API in a website
+* Fix: Language support minor issue
+
+![credcrypto_api_demo](https://appbugs.github.io/img/demo_registration.png "Website Registration demo using VeriClouds CredCrypto API. All user data will be double encrypted and are uncrackable even if database is stolen.")
+
+#### version: 1.1.2 (11/02/2017)
+* New: Move passwords from email to link so we can revoke access when wrong email is sent
+* Fix: Release Note scroll issue
+
 #### version: 1.1.1 (10/20/2017)
 * New: Consolidate customer management buttons into dropdown menus
 * New: Manage customer license by setting paid expiration date and notes
