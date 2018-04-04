@@ -15,18 +15,18 @@
 
 *	New: Support query with hashed passwords
 
-![Hashed-passwords](https://appbugs.github.io/img/Hashed-passwords.png "")
+![Hashed-passwords](https://appbugs.github.io/img/Hashed-passwords.png "Support query with hashed passwords")
 
 #### version 1.1.8 (1/23/2018)
 * New: VIP labeling and daily scan  
 * New: ‘First Seen’ date added  
 * New: ‘Profiles’ data added showing the types of data leaked 
 
-![VIP-and-first-seen](https://appbugs.github.io/img/VIP-and-first-seen.png "")
+![VIP-and-first-seen](https://appbugs.github.io/img/VIP-and-first-seen.png "‘Profiles’ data added showing the types of data leaked")
 
 * New: Data insights via graphical interface
 
-![Insights](https://appbugs.github.io/img/Insights.png "")
+![Insights](https://appbugs.github.io/img/Insights.png "Data insights via graphical interface")
 
 #### version: 1.1.7 (12/22/2017)
 * New: CredMonitor supports monitoring leaked profile information
