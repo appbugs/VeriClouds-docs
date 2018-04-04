@@ -3,6 +3,21 @@
 
 # Release Notes
 
+#### version: 1.1.9 (3/13/2018)
+
+* New: Check common passwords by domain (top 1,000, 10,000, etc.)
+
+* New: Query based on user name or email address
+
+*	New: Support query with hashed passwords
+
+#### version 1.1.8 (1/23/2018)
+* New: Data insights via graphical interface
+* New: VIP labeling and daily scan
+* New: ‘First Seen’ date added
+
+* New: ‘Profiles’ data added showing the types of data leaked 
+
 #### version: 1.1.7 (12/22/2017)
 * New: CredMonitor supports monitoring leaked profile information
 * New: API supports email as userid_type
