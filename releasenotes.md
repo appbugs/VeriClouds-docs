@@ -7,11 +7,11 @@
 
 * New: Check common passwords by domain (top 1,000, 10,000, etc.)  
 
-![Common Password by Domain](https://appbugs.github.io/img/common-passwords-by-domain.png "")
+![Common Password by Domain](https://appbugs.github.io/img/common-passwords-by-domain.png "Check common passwords by domain")
 
 * New: Query based on user name or email address
 
-![query-username-email](https://appbugs.github.io/img/query-username-email.png "")
+![query-username-email](https://appbugs.github.io/img/query-username-email.png "Query based on user name or email address")
 
 *	New: Support query with hashed passwords
 
