@@ -5,22 +5,27 @@
 
 #### version: 1.1.9 (3/13/2018)
 
-* New: Check common passwords by domain (top 1,000, 10,000, etc.)
+* New: Check common passwords by domain (top 1,000, 10,000, etc.)  
+
 ![Common Password by Domain](https://appbugs.github.io/img/common-passwords-by-domain.png "")
 
 * New: Query based on user name or email address
+
 ![query-username-email](https://appbugs.github.io/img/query-username-email.png "")
 
 *	New: Support query with hashed passwords
+
 ![Hashed-passwords](https://appbugs.github.io/img/Hashed-passwords.png "")
 
 #### version 1.1.8 (1/23/2018)
 * New: VIP labeling and daily scan  
 * New: ‘First Seen’ date added  
 * New: ‘Profiles’ data added showing the types of data leaked 
+
 ![VIP-and-first-seen](https://appbugs.github.io/img/VIP-and-first-seen.png "")
 
 * New: Data insights via graphical interface
+
 ![Insights](https://appbugs.github.io/img/Insights.png "")
 
 #### version: 1.1.7 (12/22/2017)
