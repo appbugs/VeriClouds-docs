@@ -68,7 +68,7 @@
             </tr>
             <tr>
               <td>userid_type</td>
-              <td>The type of <b>userid</b>. The API currently accepts <b>email</b>, <b>username</b>, <b>phone_number</b>, <b>hashed_email</b>, <b>hashed_userid</b>, and <b>hashed_username_part</b>. If <b>hash_*</b> is specified, <b>userid</b> field is required to have the SHA256 hash value of the email, username, or userid (email or username) instead of the plaintext version. If <b>hashed_*_part</b> is specified, you can put first part of the hash (minimum 16-byte) in userid instead of the full hash to preserve privacy. </td>
+              <td>The type of <b>userid</b>. The API currently accepts <b>email</b>, <b>username</b>, <b>phone_number</b>, <b>hashed_email</b>, <b>hashed_userid</b>, and <b>hashed_username_part</b>. If <b>hashed_*</b> is specified, <b>userid</b> field is required to have the SHA256 hash value of the email, username, or userid (email or username) instead of the plaintext version. If <b>hashed_*_part</b> is specified, you can put first part of the hash (minimum 16-byte) in <b>userid</b> instead of the full hash to preserve more privacy. </td>
             </tr>
             <tr>
               <td>hash_segment</td>
