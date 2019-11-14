@@ -76,7 +76,7 @@
             </tr>
             <tr>
               <td>context</td>
-              <td>Additional context data that can be requested. It is a combination of <b>source_type</b>,<b>source_count</b>, and <b>paste</b>, seperated by comma. It only works with <b>mode</b>=<b>search_leaked_password_with_userid</b>.</code></td>
+              <td>Additional context data that can be requested. It is a list of keywords, seperated by comma. It only works with <b>mode</b>=<b>search_leaked_password_with_userid</b>. Each keyword indicate an additional task. Accepted keywords include <b>source_type</b> (task: load source type),<b>source_count</b> (task: load source count), <b>include_hash</b> (task: include leaked password hashes), <b>paste</b> (task: search pastes for leaks), <b>ai_bot</b> (task: enable AI bot to find more leaks), <b>profile</b> (task: load leaked profiles), <b>first_seen_date</b> (task: load first seen date), <b>last_seen_date</b> (task: load last seen date), <b>complexity</b> (task: load password complexity), and <b>hash_password</b> (task: hash passwords). If <b>hash_password</b> is specified, it is required to include <b>hash_algorithm</b> (supported value includes <b>sha256</b> and <b>sha512</b>) and <b>hash_salt</b> (salt for hashing passwords).</code></td>
             </tr>
           </tbody>
         </table>
