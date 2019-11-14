@@ -14,12 +14,12 @@
       <br>
       <h1 align="center">VeriClouds CredVerify API Document</h1>
       <hr>
-      <div align="center">Last updated December 03, 2017</div>
+      <div align="center">Last updated November 12, 2019</div>
       <br>
       <div class="col-10">
         <h2>Why?</h2>
         <p>
-          Passwords already become the weakest link in cyber security. According to Verizon Data Breach Report 2017, 81% of data breaches confirmed in 2017 involved using weak and/or stolen passwords. The VeriClouds CredVerify API provides a secure and easy-to-use API interface which allows an enterprise customer to verify whether a user/employee account is compromised by checking the account record against billions of leaked credentials collected by VeriClouds.
+          Passwords already become the weakest link in cyber security. According to Verizon Data Breach Report 2017, 81% of data breaches confirmed in 2017 involved using weak and/or stolen passwords. The VeriClouds CredVerify API provides a secure and easy-to-use API interface which allows an enterprise customer to verify whether a user/employee account is compromised by securely checking the account record against billions of leaked credentials collected by VeriClouds.
         </p>
         <h2>API Usage</h2>
         <p>
@@ -68,7 +68,7 @@
             </tr>
             <tr>
               <td>userid_type</td>
-              <td>The type of <b>userid</b>. The API currently accepts <b>email</b>, <b>username</b>, <b>phone_number</b> and <b>hash</b>. If <b>hash</b> is specified, <b>userid</b> field is required to have the SHA256 hash value of the user ID(email only) instead of the plaintext user ID (email only).</td>
+              <td>The type of <b>userid</b>. The API currently accepts <b>email</b>, <b>username</b>, <b>phone_number</b>, <b>hashed_email</b>, <b>hashed_userid</b>, and <b>hashed_username_part</b>. If <b>hash_*</b> is specified, <b>userid</b> field is required to have the SHA256 hash value of the email, username, or userid (email or username) instead of the plaintext version. If <b>hashed_*_part</b> is specified, you can put first part of the hash (minimum 16-byte) in userid instead of the full hash to preserve privacy. </td>
             </tr>
             <tr>
               <td>hash_segment</td>
