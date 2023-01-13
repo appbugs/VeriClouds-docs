@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>VeriClouds - REST API Documentation</title>
+    <title>VeriClouds - API Documentation</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,14 +27,14 @@
         </p>
         <h4>Check if an account is compromised</h4>
         <p>
-          To check whether the user ID and password combination is included in the compromised database, you first make a REST API call to the endpoint described below with the user ID of the account under API working mode search_leaked_password_with_userid. For a successful API call, the response data will include passwords_encrypted, a list of leaked passwords found by VeriClouds to be associated with the user ID. The passwords are encrypted with AES 256 CBC mode.
+          To check whether the user ID and password combination is included in the compromised database, you first make an API call to the endpoint described below with the user ID of the account under API working mode search_leaked_password_with_userid. For a successful API call, the response data will include passwords_encrypted, a list of leaked passwords found by VeriClouds to be associated with the user ID. The passwords are encrypted with AES 256 CBC mode.
         </p>
         <p>
           If you do not have the plaintext password of the account, you can use the number of records in the list as a risk indicator of the user ID. If you have the plaintext, then you can compare the plaintext against the list of leaked passwords to detect a match. Specifically, you need to decrypt the passwords with the api_secret as the key and then do the comparison. You will notice that each decrypted password only contains first and last characters and the length of the leaked password. You simply compare this partial leaked password against the plaintext password of the account. If the three pieces of information match (i.e., first, last characters and the length), according to VeriClouds study, there is over 99.9% of possibility that your password matches the leaked password, meaning that the user account (both user ID and password) is compromised.
         </p>
         <h4>Check if a password is compromised</h4>
         <p>
-          To verify whether a password is included in a list of already compromised passwords, you make a REST API call to the endpoint described below with a partial hash of the test password under API working mode search_leaked_password_with_hash_segment. The response data will include password_hashes, a list of leaked passwords in format of SHA1 hashes. Then use the SHA1 hash of the test password to check against the list to find out whether it is compromised or not.
+          To verify whether a password is included in a list of already compromised passwords, you make an API call to the endpoint described below with a partial hash of the test password under API working mode search_leaked_password_with_hash_segment. The response data will include password_hashes, a list of leaked passwords in format of SHA1 hashes. Then use the SHA1 hash of the test password to check against the list to find out whether it is compromised or not.
         </p>
         <h4>API Interface</h4>
         <pre><code class="http">https://api.vericlouds.com/index.php</code></pre>
