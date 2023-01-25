@@ -76,3 +76,73 @@ All the parameters should be encoded by "urlencoding" and send to API Interface 
 </tr>
 </tbody>
 </table>
+
+## Sample code
+
+Below is a sample Python script which checks if an e-mail address is compromised.
+
+```
+import json
+import requests
+from Crypto.Cipher import AES
+import configparser
+import argparse
+import hashlib
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('email', help='E-mail address to check')
+
+args = parser.parse_args()
+
+config = configparser.ConfigParser()
+
+config.read('config.ini')
+
+api_url = config['api']['url']
+api_key = config['api']['key']
+api_secret = config['api']['secret']
+
+def decrypt_password(key, entry):
+  [ciphertext, iv] = entry.split(':')
+  cipher = AES.new(bytes.fromhex(key), AES.MODE_CBC, bytes.fromhex(iv))
+  return cipher.decrypt(bytes.fromhex(ciphertext)).decode().rstrip()
+
+def check_compromised(email):
+    reqdata = {
+      'mode':'search_leaked_password_with_userid',
+      'api_key': api_key,
+      'api_secret': api_secret,
+      'userid': email,
+      'userid_type': 'email', # email is default so we could leave this blank
+      'disable_cache': True
+    }
+    resp = requests.post(
+      api_url,
+      data=reqdata,
+    )
+    resp = resp.json()
+    print(resp)
+    result = resp['result']
+    if result != 'succeeded':
+      print(f'Query failed. Result: {result}')
+      return
+    if 'access_token' in resp:
+      access_token = resp['access_token']
+      print(f'Access token: {access_token}')
+    encrypted_passwords = resp['passwords_encrypted']
+    password_count = len(encrypted_passwords)
+    if password_count == 0:
+      print('No passwords found.')
+      return
+    print(f'{password_count} passwords found ...')
+    for entry in encrypted_passwords:
+      # Each entry in the list consists of the ciphertext and IV (initialization
+      # vector) separated by a colon (:)
+      plaintext = decrypt_password(api_secret, entry)
+      print(f'\t{plaintext}')
+
+check_compromised(args.email)
+```
+
+
