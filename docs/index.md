@@ -4,6 +4,10 @@ date: January 13, 2022
 
 # VeriClouds CredVerify API Document
 
+```{admonition} Please note
+This documentation is being migrated from an older system and is a work in progress.
+```
+
 ## Why?
 
 Passwords already become the weakest link in cyber security.
@@ -38,44 +42,19 @@ To verify whether a password is included in a list of already compromised passwo
 
 All the parameters should be encoded by "urlencoding" and send to API Interface by POST method.
 
-<table>
-<thead>
-<tr>
-<td>Name</td>
-<td>Description</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>mode</td>
-<td>The API working mode, currently we accept <b>search_leaked_password_with_userid</b> and <b>search_leaked_password_with_hash_segment</b>. The first mode allows to query leaked passwords with a user ID. The second mode allows to query leaked passwords with partial hash of the user password. For the first mode, <b>userid</b> is required. For the second mode, <b>hash_segment</b> is required.</td>
-</tr>
-<tr>
-<td>api_key</td>
-<td>The API key assigned by VeriClouds to the customer.</td>
-</tr>
-<tr>
-<td>api_secret</td>
-<td>The API secret assigned by VeriClouds to the customer. The secret is also used for decrypting sensitive data such as leaked passwords. It is important to never share the secret with any 3rd party.</td>
-</tr>
-<tr>
-<td>userid</td>
-<td>The user ID of the test account. The API currently only accepts email address as user ID. Only provide this field when <b>mode</b> is <b>search_leaked_password_with_userid</b>.</td>
-</tr>
-<tr>
-<td>userid_type</td>
-<td>The type of <b>userid</b>. The API currently accepts <b>email</b>, <b>username</b>, <b>phone_number</b>, <b>hashed_email</b>, <b>hashed_userid</b>, and <b>hashed_username_part</b>. If <b>hashed_*</b> is specified, <b>userid</b> field is required to have the SHA256 hash value of the email, username, or userid (email or username) instead of the plaintext version. If <b>hashed_*_part</b> is specified, you can put first part of the hash (minimum 16-byte) in <b>userid</b> instead of the full hash to preserve more privacy. </td>
-</tr>
-<tr>
-<td>hash_segment</td>
-<td>First six characters of a hex formated SHA1 hash of the test password. Only provide this field when <b>mode</b> is <b>search_leaked_password_with_hash_segment</b>. </td>
-</tr>
-<tr>
-<td>context</td>
-<td>Additional context data that can be requested. It is a list of keywords, seperated by comma. It only works with <b>mode</b>=<b>search_leaked_password_with_userid</b>. Each keyword indicate an additional task. Accepted keywords include <b>source_type</b> (task: load source type),<b>source_count</b> (task: load source count), <b>include_hash</b> (task: include leaked password hashes), <b>paste</b> (task: search pastes for leaks), <b>ai_bot</b> (task: enable AI bot to find more leaks), <b>profile</b> (task: load leaked profiles), <b>first_seen_date</b> (task: load first seen date), <b>last_seen_date</b> (task: load last seen date), <b>complexity</b> (task: load password complexity), and <b>hash_password</b> (task: hash passwords). If <b>hash_password</b> is specified, it is required to include <b>hash_algorithm</b> (supported value includes <b>sha256</b> and <b>sha512</b>) and <b>hash_salt</b> (salt for hashing passwords).</code></td>
-</tr>
-</tbody>
-</table>
+| Name | Description |
+| ---- | ----------- |
+| `mode` | The API working mode, currently we accept <b>search_leaked_password_with_userid</b> and <b>search_leaked_password_with_hash_segment</b>. The first mode allows to query leaked passwords with a user ID. The second mode allows to query leaked passwords with partial hash of the user password. For the first mode, <b>userid</b> is required. For the second mode, <b>hash_segment</b> is required. |
+| `api_key` | The API key assigned by VeriClouds to the customer. |
+| `api_secret` | The API secret assigned by VeriClouds to the customer. The secret is also used for decrypting sensitive data such as leaked passwords. It is important to never share the secret with any 3rd party. |
+| `userid` | The user ID of the test account. The API currently only accepts email address as user ID. Only provide this field when <b>mode</b> is <b>search_leaked_password_with_userid</b> |
+| `userid_type` | The type of <b>userid</b>. The API currently accepts <b>email</b>, <b>username</b>, <b>phone_number</b>, <b>hashed_email</b>, <b>hashed_userid</b>, and <b>hashed_username_part</b>. If <b>hashed_*</b> is specified, <b>userid</b> field is required to have the SHA256 hash value of the email, username, or userid (email or username) instead of the plaintext version. If <b>hashed_*_part</b> is specified, you can put first part of the hash (minimum 16-byte) in <b>userid</b> instead of the full hash to preserve more privacy. |
+| `hash_segment` | First six characters of a hex formated SHA1 hash of the test password. Only provide this field when <b>mode</b> is <b>search_leaked_password_with_hash_segment</b>. |
+| `context` | Additional context data that can be requested. It is a list of keywords, seperated by comma. It only works with <b>mode</b>=<b>search_leaked_password_with_userid</b>. Each keyword indicate an additional task. Accepted keywords include <b>source_type</b> (task: load source type),<b>source_count</b> (task: load source count), <b>include_hash</b> (task: include leaked password hashes), <b>paste</b> (task: search pastes for leaks), <b>ai_bot</b> (task: enable AI bot to find more leaks), <b>profile</b> (task: load leaked profiles), <b>first_seen_date</b> (task: load first seen date), <b>last_seen_date</b> (task: load last seen date), <b>complexity</b> (task: load password complexity), and <b>hash_password</b> (task: hash passwords). If <b>hash_password</b> is specified, it is required to include <b>hash_algorithm</b> (supported value includes <b>sha256</b> and <b>sha512</b>) and <b>hash_salt</b> (salt for hashing passwords). |
+
+```{admonition} Attention
+The `api_key` and `api_secret` are what we used to identify each customer and monitor customer API usage. The `api_secret` is also used to decrypt user partial passwords. Please keep them to yourself and do not share with any third parties. The encrypted passwords may be stored on a permanent storage such as a database, but please do not store the decrypted passwords.
+```
 
 ## Sample code
 
