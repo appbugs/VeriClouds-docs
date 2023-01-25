@@ -2,5 +2,6 @@
 
 Welcome to the Vericlouds API documentation.
 
-For more information please visit the [Vericlouds website](https://www.vericlouds.com/) .
+You can find the documentation for the CredVerify API [here](apidoc.md).
+
 
