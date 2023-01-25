@@ -17,28 +17,44 @@ The VeriClouds CredVerify API provides a secure and easy-to-use API interface wh
 ## API Usage
 
 This document provides instructions on how to integrate VeriClouds CredVerify API with your account systems.
-First you need to have an `api_key` and an `api_secret` (If you do not have them, request FREE TRIAL from VeriClouds.).
+
+### API credentials
+
+First you need to have an API key and an API secret.
+These constitute your API credentials, and should be provided to you by Vericlouds staff.
+(If you do not have them, request a FREE TRIAL from [VeriClouds](https://www.vericlouds.com/).)
 After obtaining the `api_key`, and `api_secret`, you can develop code to use the VeriClouds CredVerify API service.
 
+#### API secret and AES encryption
 
-#### Check if an account is compromised
+The API secret is also used as an encryption key, and - as explained below - you will need it when decrypting certain parameters in the API response. Specifically, the API encrypts certain response variables using 256-bit AES encryption, and uses your API secret as the encryption key.
+
+When sending the API secret in the HTTP request (for authentication purposes) you will use the ASCII / plaintext representation of the secret (i.e. 64 hexadecimal characters - corresponding to 32 bytes or 256 bits).
+
+When decrypting the response, however, you will typically need to convert this hexadecimal representation to binary to perform the actual decryption. How you do this will depend on your chosen programming language, _etc._.
+
+### Check if an account is compromised
 
 To check whether the user ID and password combination is included in the compromised database, you first make an API call to the endpoint described below with the user ID of the account under API working mode `search_leaked_password_with_userid`.
 For a successful API call, the response data will include `passwords_encrypted`, a list of leaked passwords found by VeriClouds to be associated with the user ID.
 The passwords are encrypted with AES 256 CBC mode.
 
 If you do not have the plaintext password of the account, you can use the number of records in the list as a risk indicator of the user ID.
-If you have the plaintext, then you can compare the plaintext against the list of leaked passwords to detect a match. Specifically, you need to decrypt the passwords with the api_secret as the key and then do the comparison. You will notice that each decrypted password only contains first and last characters and the length of the leaked password. You simply compare this partial leaked password against the plaintext password of the account. If the three pieces of information match (i.e., first, last characters and the length), according to VeriClouds study, there is over 99.9% of possibility that your password matches the leaked password, meaning that the user account (both user ID and password) is compromised.
+If you have the plaintext, then you can compare the plaintext against the list of leaked passwords to detect a match.
+Specifically, you need to decrypt the passwords with the `api_secret` as the key and then do the comparison.
 
-#### Check if a password is compromised
+You will notice that each decrypted password only contains first and last characters and the length of the leaked password. You simply compare this partial leaked password against the plaintext password of the account.
+If the three pieces of information match (i.e., first, last characters and the length), according to VeriClouds study, there is over 99.9% of possibility that your password matches the leaked password, meaning that the user account (both user ID and password) is compromised.
+
+### Check if a password is compromised
 
 To verify whether a password is included in a list of already compromised passwords, you make an API call to the endpoint described below with a partial hash of the test password under API working mode `search_leaked_password_with_hash_segment`. The response data will include `password_hashes`, a list of leaked passwords in format of SHA1 hashes. Then use the SHA1 hash of the test password to check against the list to find out whether it is compromised or not.
 
-#### API interface
+### API interface
 
 [https://api.vericlouds.com/index.php](https://api.vericlouds.com/index.php)
 
-#### Request parameters
+### Request parameters
 
 All the parameters should be encoded by "urlencoding" and send to API Interface by POST method.
 
