@@ -177,6 +177,6 @@ epub_exclude_files = ['search.html']
 # -- Other options -----------------------------------------------------------
 
 html_extra_path = [
-  'extra'
+  'robots.txt'
 ]
 
