@@ -129,9 +129,6 @@ def check_compromised(email):
     if result != 'succeeded':
       print(f'Query failed. Result: {result}')
       return
-    if 'access_token' in resp:
-      access_token = resp['access_token']
-      print(f'Access token: {access_token}')
     encrypted_passwords = resp['passwords_encrypted']
     password_count = len(encrypted_passwords)
     if password_count == 0:
